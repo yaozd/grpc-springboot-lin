@@ -15,7 +15,7 @@ public class GrpcClientService {
 
     public String sendMessage(String name) {
         GreeterGrpc.GreeterBlockingStub stub= GreeterGrpc.newBlockingStub(serverChannel);
-        GreeterOuterClass.HelloReply response = stub.sayHello(GreeterOuterClass.HelloRequest.newBuilder().setName(name).build());
+        GreeterOuterClass.HelloReply response = stub.sayHello(GreeterOuterClass.HelloRequest.newBuilder().setAge(1).setName(name).build());
         return response.getMessage();
     }
 }

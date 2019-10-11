@@ -12,7 +12,7 @@ import net.devh.springboot.autoconfigure.grpc.server.GrpcService;
 public class GreeterService extends GreeterGrpc.GreeterImplBase {
     @Override
     public void sayHello(GreeterOuterClass.HelloRequest request, StreamObserver<GreeterOuterClass.HelloReply> responseObserver) {
-        String message = "Hello " + request.getName();
+        String message = "Hello " + request.getName()+";age:"+String.valueOf(request.getAge());
         final GreeterOuterClass.HelloReply.Builder replyBuilder = GreeterOuterClass.HelloReply.newBuilder().setMessage(message);
         responseObserver.onNext(replyBuilder.build());
         responseObserver.onCompleted();
